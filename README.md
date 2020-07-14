@@ -6,7 +6,7 @@ Il server REST fornisce gli entrypoint per la gestione e il monitoraggio di reti
 ## Guida per l'installazione
 ### Step 1: Esegui questi comandi nel terminale per scaricare e compilare i sorgenti e caricarli in un'istanza di Apache Tomcat
 sudo apt install git default-jdk maven\
-wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.37/bin/apache-tomcat-9.0.37.tar.gz\
+wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.37/bin/apache-tomcat-9.0.37.tar.gz \
 tar -zxvf apache-tomcat-9.0.37.tar.gz\
 rm apache-tomcat-9.0.37.tar.gz\
 cd apache-tomcat-9.0.37/\
