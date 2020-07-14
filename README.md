@@ -24,13 +24,13 @@ cd ../../
 
 
 ### Step 2: Importa lo schema del database (sul server dove è installato mySQL)
-user@localhost:~/API/$ mysql swbd < db_schema.sql
+user@localhost:\~/API/$ mysql swbd < db_schema.sql
 
 ### Step 3: Configura il servizio ed avvia tomcat
-user@localhost:~/$ cd apache-tomcat-9.0.37/\
+user@localhost:\~/$ cd apache-tomcat-9.0.37/\
 (Modificare il file web.xml secondo la configurazione del database server)\
-user@localhost:~/apache-tomcat-9.0.37/$ nano webapps/WEB-INF/web.xml\
-user@localhost:~/apache-tomcat-9.0.37/$ ./bin/catalina.sh start
+user@localhost:\~/apache-tomcat-9.0.37/$ nano webapps/WEB-INF/web.xml\
+user@localhost:\~/apache-tomcat-9.0.37/$ ./bin/catalina.sh start
 
 ### Il server REST è pronto ed è in ascolto alla porta 8080 al path /API/v1/
 Enjoy!
