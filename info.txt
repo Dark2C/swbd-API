@@ -1,3 +1,0 @@
-1. Deploy del file WAR su Apache Tomcat
-2. Modifica del file WEB-INF/web.xml
-3. Riavvio del servizio tomcat
