@@ -1,0 +1,84 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/github-dark.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Progetto di SWBD</title>
+  <meta name="description" content="Progetto per esame di Sistemi web e Basi di Dati - a cura di Ciampaglia e Oliva">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Progetto di SWBD</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">Progetto per esame di Sistemi web e Basi di Dati - a cura di Ciampaglia e Oliva</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/Dark2C/swbd-API/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/Dark2C/swbd-API/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/Dark2C/swbd-API" class="code">View Progetto di SWBD on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h3>
+<a id="benvenutoa-sulla-pagina-del-progetto-di-swbd" class="anchor" href="#benvenutoa-sulla-pagina-del-progetto-di-swbd" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Benvenuto/a sulla pagina del progetto di SWBD.</h3>
+<p>Il progetto consiste in un portale web per il monitoraggio di reti di sensori, atto a tracciare lo stato di tali sensori e a consentire un controllo remoto degli stessi. In modo particolare i sensori sono dedicati al monitoraggio di impianti di produzione elettrica come turbine eoliche, idroelettriche e pannelli fotovoltaici.</p>
+<h3>
+<a id="classi-di-utenti-a-cui-è-destinata-la-piattaforma" class="anchor" href="#classi-di-utenti-a-cui-%C3%A8-destinata-la-piattaforma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Classi di utenti a cui è destinata la piattaforma</h3>
+<p>Per questo tipo di sistema esistono quattro tipologie di utenti:</p>
+<ul>
+<li>L’<em>amministratore</em> è il gestore dell’azienda ed ha la possibilità di aggiungere un nuovo impianto, modificare, monitorare lo stato degli impianti già esistenti direttamente dalla piattaforma web. Può gestire anche l’elenco dei dipendenti e dei tecnici che lavorano per determinati impianti. I tecnici sono interni all’azienda.</li>
+<li>Il <em>dipendente</em>, sottoposto all’amministratore, può avere il controllo di più impianti che gli sono stati assegnati comunque in numero limitato deciso dall’amministratore. Il dipendente può visualizzare solo gli impianti ad egli assegnati. Per ciascun impianto, l’amministratore può scegliere se il dipendente deve solo monitorare lo stato dell’impianto o oppure intervenire sugli attuatori. Egli controlla anche se sono presenti anomalie e in questo caso richiedere un intervento oppure aggiungere un tecnico ad un intervento già presente agli impianti ad egli assegnati.</li>
+<li>I <em>tecnici</em> possono lavorare sugli impianti che gli sono stati assegnati. Quest’ultimi sono visibili dalla piattaforma web a cui il singolo tecnico si è registrato. Il tecnico può anche monitorare lo stato dell’impianto su cui deve effettuare l’intervento e comunica attraverso la stessa piattaforma che l’intervento è stato effettuato.</li>
+<li>
+<em>Monitor</em> è un applicativo che verifica periodicamente, ad una cadenza regolare scelta dall’amministratore, la presenza di anomalie e in caso affermativo la comunica agli amministratori tramite SMS.</li>
+</ul>
+<h3>
+<a id="ambiente-operativotecnologie-utilizzate" class="anchor" href="#ambiente-operativotecnologie-utilizzate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ambiente operativo/tecnologie utilizzate</h3>
+<p>I sensori sono tipo eterogeneo. I loro dati vengono raccolti da un gateway che ha come obiettivo quello di trasformare i dati forniti dai sensori in un formato standard (JSON) e offrire servizi di comunicazione comuni. Il gateway invia i dati al web service REST che si interfaccia a un database il quale non è direttamente accessibile dall’esterno./
+Il web service è sviluppato in Java, funziona su Apache TomEE e Tomcat e si interfaccia con un database MySQL./
+Il portale web è sviluppato utilizzando il linguaggio di programmazione PHP e funziona su un web server Apache./
+Il client è un applicazione web accessibile via browser sviluppata con il framework bootstrap e JQuery./
+Il monitor, invece, è un client standalone sviluppato in Java che si interfaccia direttamente con il web server REST./</p>
+<h3>
+<a id="autori" class="anchor" href="#autori" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autori</h3>
+<p>Gli autori di questo progetto sono Ciro Ciampaglia (<a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/Dark2C/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Dark2C">@Dark2C</a>) e Federica Oliva.</p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/Dark2C" class="avatar"><img src="https://avatars1.githubusercontent.com/u/41321160?s=60&amp;v=4" width="48" height="48"></a> <a href="https://github.com/Dark2C">Dark2C</a> maintains <a href="https://github.com/Dark2C/swbd-API">Progetto di SWBD</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/Dark2C/swbd-API/tarball/master" class="tar">tar</a><a href="https://github.com/Dark2C/swbd-API/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
