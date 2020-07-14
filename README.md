@@ -16,7 +16,7 @@ cd ../\
 mkdir API\
 cd API/\
 git init\
-git pull https://github.com/Dark2C/swbd-API\
+git pull https://github.com/Dark2C/swbd-API \
 mvn package\
 cd target/\
 unzip API-0.1-SNAPSHOT.war -d ../../apache-tomcat-9.0.37/webapps/API/\
