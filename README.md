@@ -20,7 +20,7 @@ git pull https://github.com/Dark2C/swbd-API\
 mvn package\
 cd target/\
 unzip API-0.1-SNAPSHOT.war -d ../../apache-tomcat-9.0.37/webapps/API/\
-cd ../../\
+cd ../../
 
 
 ### Step 2: Importa lo schema del database (sul server dove è installato mySQL)
@@ -30,7 +30,7 @@ user@localhost:~/API/$ mysql swbd < db_schema.sql\
 user@localhost:~/$ cd apache-tomcat-9.0.37/\
 (Modificare il file web.xml secondo la configurazione del database server)\
 user@localhost:~/apache-tomcat-9.0.37/$ nano webapps/WEB-INF/web.xml\
-user@localhost:~/apache-tomcat-9.0.37/$ ./bin/catalina.sh start\
+user@localhost:~/apache-tomcat-9.0.37/$ ./bin/catalina.sh start
 
 ### Il server REST è pronto ed è in ascolto alla porta 8080 al path /API/v1/
 Enjoy!
