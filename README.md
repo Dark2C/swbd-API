@@ -24,7 +24,7 @@ cd ../../
 
 
 ### Step 2: Importa lo schema del database (sul server dove è installato mySQL)
-user@localhost:~/API/$ mysql swbd < db_schema.sql\
+user@localhost:~/API/$ mysql swbd < db_schema.sql
 
 ### Step 3: Configura il servizio ed avvia tomcat
 user@localhost:~/$ cd apache-tomcat-9.0.37/\
