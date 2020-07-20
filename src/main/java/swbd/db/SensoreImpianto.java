@@ -18,6 +18,8 @@ public class SensoreImpianto {
 	public String produttore;
 	public String modello;
 	public String descrizione;
+	public String unita_misura;
+	public String unita_misura_integrale;
 	public double valore_min;
 	public double valore_max;
 
@@ -41,6 +43,8 @@ public class SensoreImpianto {
 		descrizione = res.getString("descrizione");
 		valore_min = res.getDouble("valore_min");
 		valore_max = res.getDouble("valore_max");
+		unita_misura = res.getString("unita_misura");
+		unita_misura_integrale = res.getString("unita_misura_integrale");
 	}
 
 	public Impianto getImpianto() throws Exception {
@@ -114,14 +118,6 @@ public class SensoreImpianto {
 			ResultSet rs = ps.getGeneratedKeys();
 			if (rs.next())
 				ID_sensore_impianto = rs.getInt(1);
-		} else { // UPDATE
-			ps = conn.prepareStatement("UPDATE sensori_impianto SET descrizione=?,sensore=?,intervento=?,"
-					+ "data_segnalazione=?,stato=? WHERE ID_sensore_impianto=?");
-			ps.setInt(1, impianto);
-			ps.setInt(2, tipologia);
-			ps.setString(3, data_installazione);
-			ps.setInt(4, ID_sensore_impianto);
-			ps.executeUpdate();
 		}
 	}
 }
