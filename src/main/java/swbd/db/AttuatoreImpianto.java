@@ -19,6 +19,7 @@ public class AttuatoreImpianto {
 	public String modello;
 	public String descrizione;
 	public String tipo_valore;
+	public String unita_misura;
 	public double valore_min;
 	public double valore_max;
 
@@ -41,6 +42,7 @@ public class AttuatoreImpianto {
 		modello = res.getString("modello");
 		descrizione = res.getString("descrizione");
 		tipo_valore = res.getString("tipo_valore");
+		unita_misura = res.getString("unita_misura");
 		valore_min = res.getDouble("valore_min");
 		valore_max = res.getDouble("valore_max");
 	}
@@ -133,14 +135,6 @@ public class AttuatoreImpianto {
 			ResultSet rs = ps.getGeneratedKeys();
 			if (rs.next())
 				ID_attuatore_impianto = rs.getInt(1);
-		} else { // UPDATE
-			ps = conn.prepareStatement("UPDATE attuatori_impianto SET impianto=?,tipologia=?,"
-					+ "data_installazione=? WHERE ID_attuatore_impianto=?");
-			ps.setInt(1, impianto);
-			ps.setInt(2, tipologia);
-			ps.setString(3, data_installazione);
-			ps.setInt(4, ID_attuatore_impianto);
-			ps.executeUpdate();
 		}
 	}
 }
