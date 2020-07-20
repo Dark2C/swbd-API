@@ -58,7 +58,7 @@ public class AttuatoreImpianto {
 	public Operazione[] getOperazioni(boolean conferma_lettura) throws Exception {
 		Connection conn = Database.Get_Connection();
 		PreparedStatement ps = conn.prepareStatement(
-				"SELECT ID_operazione FROM operazioni WHERE attuatore=? AND conferma_lettura = 0 ORDER BY data_inserimento ASC");
+				"SELECT ID_operazione FROM operazioni WHERE attuatore=? AND conferma_lettura = 0 ORDER BY data_inserimento DESC");
 		ps.setInt(1, ID_attuatore_impianto);
 		ResultSet rs = ps.executeQuery();
 		if (conferma_lettura) {
@@ -82,7 +82,7 @@ public class AttuatoreImpianto {
 			fine = "3000-12-31";
 		Connection conn = Database.Get_Connection();
 		PreparedStatement ps = conn.prepareStatement(
-				"SELECT ID_operazione FROM operazioni WHERE attuatore=? AND data_inserimento BETWEEN ? AND ? ORDER BY data_inserimento ASC");
+				"SELECT ID_operazione FROM operazioni WHERE attuatore=? AND data_inserimento BETWEEN ? AND ? ORDER BY data_inserimento DESC");
 		ps.setInt(1, ID_attuatore_impianto);
 		ps.setString(2, inizio);
 		ps.setString(3, fine);
