@@ -66,7 +66,7 @@ public class SensoreImpianto {
 			fine = "3000-12-31";
 		Connection conn = Database.Get_Connection();
 		PreparedStatement ps = conn.prepareStatement(
-				"SELECT ID_Lettura FROM letture WHERE sensore=? AND data_inserimento BETWEEN ? AND ? ORDER BY data_inserimento ASC");
+				"SELECT ID_Lettura FROM letture WHERE sensore=? AND data_inserimento BETWEEN ? AND ? ORDER BY data_inserimento DESC");
 		ps.setInt(1, ID_sensore_impianto);
 		ps.setString(2, inizio);
 		ps.setString(3, fine);
@@ -84,7 +84,7 @@ public class SensoreImpianto {
 			throw new WebApplicationException(400);
 		Connection conn = Database.Get_Connection();
 		PreparedStatement ps = conn.prepareStatement(
-				"SELECT ID_Lettura FROM letture WHERE sensore=? ORDER BY data_inserimento ASC LIMIT ?");
+				"SELECT ID_Lettura FROM letture WHERE sensore=? ORDER BY data_inserimento DESC LIMIT ?");
 		ps.setInt(1, ID_sensore_impianto);
 		ps.setInt(2, numeroLetture);
 		ResultSet rs = ps.executeQuery();
