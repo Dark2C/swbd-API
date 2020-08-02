@@ -41,7 +41,10 @@ public class Lettura {
 			ID_lettura = -1;
 		}
 	}
-
+	/**
+	 * Aggiorna le informazioni sulla lettura e distingue il caso in cui debba esser creata o solo aggiornata.
+	 * @throws Exception
+	 */
 	public void salva() throws Exception {
 		Connection conn = Database.Get_Connection();
 		PreparedStatement ps;

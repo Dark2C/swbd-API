@@ -13,6 +13,11 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.google.gson.Gson;
 
 public class Authorization {
+	/**
+	 * Metodo per generare il token JWT
+	 * @param httpHeaders
+	 * @return
+	 */
 	public static String getJWTtoken(HttpHeaders httpHeaders) {
 		String token = httpHeaders.getHeaderString("Cookie");
 		if (token != null && token.contains("Authorization=Bearer ")) {
@@ -25,7 +30,12 @@ public class Authorization {
 		}
 			return null;
 	}
-
+/**
+ * Metodo per ottenere il token
+ * @param httpHeaders
+ * @return
+ * @throws Exception
+ */
 	public static String getToken(HttpHeaders httpHeaders) throws Exception {
 		Context env = (Context) new InitialContext().lookup("java:comp/env");
 		String token = getJWTtoken(httpHeaders);

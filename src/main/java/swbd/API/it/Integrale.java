@@ -4,6 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Integrale {
+	/**
+	 * Fa un integrale con il metodo dei trapezi
+	 * @param letture insieme di letture
+	 * @return
+	 * @throws ParseException
+	 */
 	// implementa il metodo dei trapezi
 	public static double calcola(swbd.db.Lettura[] letture) throws ParseException {
 		double result = 0;

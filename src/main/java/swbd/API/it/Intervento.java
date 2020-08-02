@@ -21,7 +21,13 @@ import swbd.db.Utente;
 public class Intervento {
 	@Context
 	private HttpHeaders httpHeaders;
-
+/**
+ * Metodo per rimuovere Tecnici dall'intervento
+ * @param ID_intervento id intervento
+ * @param jsonTecnici lista tecnici
+ * @return
+ * @throws Exception
+ */
 	@DELETE
 	@Path("/{ID_intervento}/tecnici")
 	public Response removeTecniciIntervento(@PathParam("ID_intervento") int ID_intervento, String jsonTecnici)
@@ -39,7 +45,13 @@ public class Intervento {
 		}
 		return Response.status(200).build();
 	}
-
+/**
+ * Metodo per rimuove un tecnico con un certo Id dall'intervento con un certo Id. E' un azione concessa solo dall'amministratore.
+ * @param ID_intervento ID dell'intervento
+ * @param ID_tecnico ID del tecnico
+ * @return
+ * @throws Exception
+ */
 	@DELETE
 	@Path("/{ID_intervento}/tecnico/{ID_tecnico}")
 	public Response removeTecnicoIntervento(@PathParam("ID_intervento") int ID_intervento,
@@ -54,7 +66,12 @@ public class Intervento {
 		}
 		return Response.status(200).build();
 	}
-
+/**
+ * Metodo per ottenere dettagli intervento
+ * @param ID ID dell'intervento
+ * @return
+ * @throws Exception
+ */
 	@GET
 	@Path("/{ID_intervento}")
 	public Response dettagliIntervento(@PathParam("ID_intervento") int ID) throws Exception {
@@ -79,7 +96,11 @@ public class Intervento {
 		Locale.setDefault(Locale.US);
 		return Response.status(200).entity(new Gson().toJson(intervento)).build();
 	}
-
+/**
+ * Metodo per aggiungere un nuovo intervento
+ * @return
+ * @throws Exception
+ */
 	@POST
 	@Path("/")
 	public Response nuovoIntervento() throws Exception {
@@ -91,7 +112,13 @@ public class Intervento {
 
 		return Response.status(200).entity("{\"ID\":" + newIntervento.ID_intervento + "}").build();
 	}
-
+/**
+ * Metodo per la modifica di un intervento con un dato ID.
+ * @param ID_intervento
+ * @param body 
+ * @return
+ * @throws Exception
+ */
 	@POST
 	@Path("/{ID_intervento}")
 	public Response modificaIntervento(@PathParam("ID_intervento") int ID_intervento, String body) throws Exception {
@@ -134,7 +161,13 @@ public class Intervento {
 
 		return Response.status(200).build();
 	}
-
+/**
+ * Aggiunta di un nuovo intervento quando viene richiamata un'anomalia.
+ * @param ID Id intervento
+ * @param body
+ * @return
+ * @throws Exception
+ */
 	@POST
 	@Path("/{ID_Intervento}/anomalia")
 	public Response nuovoIntervento(@PathParam("ID_Intervento") int ID, String body) throws Exception {
@@ -173,7 +206,12 @@ public class Intervento {
 
 		return Response.status(200).entity("{\"ID\":" + newAnomalia.ID_anomalia + "}").build();
 	}
-
+/**
+ * Metodo che ritorna le anomalie di un intervento.
+ * @param ID ID intervento
+ * @return
+ * @throws Exception
+ */
 	@GET
 	@Path("/{ID_intervento}/anomalie")
 	public Response anomalie(@PathParam("ID_intervento") int ID) throws Exception {
@@ -199,7 +237,12 @@ public class Intervento {
 		swbd.db.Anomalia[] anomalie = intervento.getAnomalie();
 		return Response.status(200).entity(new Gson().toJson(anomalie)).build();
 	}
-
+/**
+ * Metodo che ritorna la lista dei tecnici che lavorano all'intervento.
+ * @param ID Id intervento
+ * @return
+ * @throws Exception
+ */
 	@GET
 	@Path("/{ID_intervento}/tecnici")
 	public Response tecnici(@PathParam("ID_intervento") int ID) throws Exception {
@@ -225,7 +268,13 @@ public class Intervento {
 		Utente[] tecnici = intervento.getTecnici();
 		return Response.status(200).entity(new Gson().toJson(tecnici)).build();
 	}
-
+/**
+ * Metodo per aggiungere un tecnico ad un intervento. L'operazione è concessa solo dall'amministratore e dal dipendente.
+ * @param ID_intervento id dell'intervento
+ * @param ID_tecnico id del tecnico
+ * @return
+ * @throws Exception
+ */
 	@POST
 	@Path("/{ID_intervento}/tecnico/{ID_tecnico}")
 	public Response aggiungiTecnicoIntervento(@PathParam("ID_intervento") int ID_intervento,

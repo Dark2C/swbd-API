@@ -7,13 +7,22 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
+
 import com.google.gson.Gson;
+
 
 @Path("/anomalia")
 public class Anomalia {
 	@Context
 	private HttpHeaders httpHeaders;
-
+/**
+ * Metodo per aggiungere un nuovo intervento quando si verifica un'anomalia. Richiamando l'impianto,
+ * se non ho i privilegi per accedere genero un eccezione.
+ * @param ID ID_anomalia
+ * @param body descrizione anomalia
+ * @return 
+ * @throws Exception
+ */
 	@POST
 	@Path("/{ID_Anomalia}")
 	public Response nuovoIntervento(@PathParam("ID_Anomalia") int ID, String body) throws Exception {

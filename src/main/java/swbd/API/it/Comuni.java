@@ -11,7 +11,13 @@ import javax.ws.rs.core.Response;
 public class Comuni {
 	@Context
 	private HttpHeaders httpHeaders;
-
+/** 
+ * Metodo per ottenere la lista dei comuni. La risposta e' statica, dunque non la ricavo ogni volta dal database
+ * L'utente deve essere loggato.
+ * @param body
+ * @return
+ * @throws Exception
+ */
 	@GET
 	@Path("/")
 	@Produces("application/json")

@@ -14,7 +14,13 @@ import com.google.gson.Gson;
 public class Dipendente {
 	@Context
 	private HttpHeaders httpHeaders;
-
+/**
+ * Metodo per rimuovere impianto assegnato al dipendente.
+ * @param ID_dipendente id del dipendende
+ * @param jsonImpianti impianti accessibili dall'utente.
+ * @return
+ * @throws Exception
+ */
 	@DELETE
 	@Path("/{ID_dipendente}/impianti")
 	public Response removeImpiantiDipendente(@PathParam("ID_dipendente") int ID_dipendente, String jsonImpianti)
@@ -32,7 +38,13 @@ public class Dipendente {
 		}
 		return Response.status(200).build();
 	}
-
+	/**
+	 * Metodo per rimuovere un dato impianto assegnato al dipendente.
+	 * @param ID_dipendente id del dipendende
+	 * @param ID_impianto
+	 * @return
+	 * @throws Exception
+	 */
 	@DELETE
 	@Path("/{ID_dipendente}/impianto/{ID_impianto}")
 	public Response removeImpiantoDipendente(@PathParam("ID_dipendente") int ID_dipendente,
@@ -46,7 +58,13 @@ public class Dipendente {
 		}
 		return Response.status(200).build();
 	}
-
+/**
+ * Metodo per aggiungere impianti assegnati al dipendente.
+ * @param ID_dipendente
+ * @param body
+ * @return
+ * @throws Exception
+ */
 	@POST
 	@Path("/{ID_dipendente}/impianti")
 	public Response addImpiantiDipendente(@PathParam("ID_dipendente") int ID_dipendente, String body) throws Exception {
@@ -74,7 +92,16 @@ public class Dipendente {
 
 		return Response.status(200).build();
 	}
-
+	/**
+	 * Metodo per aggiungere un dato impianto alla lista di quelli accessibili dall'utente.
+	 * Si aggiungono anche i permessi di scrittura. 
+	 * E' un operazione che può fare solo l'amministratore.
+	 * @param ID_dipendente id del dipendente
+	 * @param ID_impiant	id_dell'impianto
+	 * @param body
+	 * @return
+	 * @throws Exception
+	 */
 	@POST
 	@Path("/{ID_dipendente}/impianto/{ID_impianto}")
 	public Response addImpiantoDipendente(@PathParam("ID_dipendente") int ID_dipendente,

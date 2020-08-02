@@ -15,6 +15,12 @@ public class Impianti {
 	@Context
 	private HttpHeaders httpHeaders;
 
+	/**
+	 * Metodo che ritorna la lista degli impianti in base ad un filtro.
+	 * @param body filtro per la ricerca dell'impianto. Lo si può cercare in base alla vicinanza o in base alla regione, in tutti gli altri casi in base al comune
+	 * @return
+	 * @throws Exception
+	 */
 	@GET
 	@Path("/")
 	public Response getImpianti(String body) throws Exception {

@@ -84,7 +84,11 @@ public class Intervento {
 		}
 		return result.toArray(new Anomalia[result.size()]);
 	}
-
+	/**
+	 * Aggiorna le informazioni dell'intervento e distingue il caso in cui debba esser creata o solo aggiornata.
+	 * Se un intervento termina allora tutte le anomalie devono esser risolte.
+	 * @throws Exception
+	 */
 	public void salva() throws Exception {
 		if (data_inizio == null && data_fine != null)
 			throw new WebApplicationException(400);

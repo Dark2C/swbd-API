@@ -71,7 +71,11 @@ public class ImpiantoAssegnato {
 	public Impianto getImpianto() throws Exception {
 		return new Impianto(ID_impianto);
 	}
-
+	/**
+	 * Aggiorna le informazioni dell'impianto e distingue il caso in cui debba esser creata o solo aggiornata.
+	 *Per è necessario che l'utente sia un dipendente con i permessi di scrittura
+	 * @throws Exception
+	 */
 	public void salva() throws Exception {
 		Connection conn = Database.Get_Connection();
 		PreparedStatement ps;

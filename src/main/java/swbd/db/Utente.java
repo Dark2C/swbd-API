@@ -126,7 +126,12 @@ public class Utente {
 		filtro = filtro.replace("$latitudine", lat).replace("$longitudine", lng).replace("$raggio", rad);
 		return _getImpianti(filtro);
 	}
-
+/**
+ * Ritorna la lista degli impianti. Distingue tra i vari utenti.
+ * @param filtro
+ * @return
+ * @throws Exception
+ */
 	private Impianto[] _getImpianti(String filtro) throws Exception {
 		if (filtro == null)
 			filtro = "";

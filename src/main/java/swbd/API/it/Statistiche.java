@@ -16,7 +16,13 @@ import com.google.gson.Gson;
 public class Statistiche {
 	@Context
 	private HttpHeaders httpHeaders;
-
+/**
+ * Metodo per generare le statistiche dell'impianto.
+ * @param ID id dell'impianto
+ * @param body filtro per le statistiche
+ * @return
+ * @throws Exception
+ */
 	@GET
 	@Path("/impianto/{ID}")
 	public Response statisticheImpianto(@PathParam("ID") int ID, String body) throws Exception {
@@ -38,7 +44,9 @@ public class Statistiche {
 
 		return Response.status(200).entity(gson.toJson(statisticaImpianto(impianto, filtro))).build();
 	}
-
+/**
+ * Restituisce tutte le statistiche degli impianti
+ */
 	@GET
 	@Path("/impianti")
 	public Response statisticheImpianti(String body) throws Exception {

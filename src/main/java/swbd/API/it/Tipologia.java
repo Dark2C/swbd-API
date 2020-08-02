@@ -17,7 +17,12 @@ import com.google.gson.Gson;
 public class Tipologia {
 	@Context
 	private HttpHeaders httpHeaders;
-
+/**
+ * Metodo per rimuovere la tipologia dell'attuatore con un dato Id.
+ * @param ID id tipologia attuatore
+ * @return
+ * @throws Exception
+ */
 	@DELETE
 	@Path("/attuatore/{ID}")
 	public Response removeTipologiaAttuatore(@PathParam("ID") int ID) throws Exception {
@@ -30,7 +35,12 @@ public class Tipologia {
 		}
 		return Response.status(200).build();
 	}
-
+	/**
+	 * Metodo per rimuovere la tipologia del sensore con un dato Id.
+	 * @param ID id tipologia sensore
+	 * @return
+	 * @throws Exception
+	 */
 	@DELETE
 	@Path("/sensore/{ID}")
 	public Response removeTipologiaSensore(@PathParam("ID") int ID) throws Exception {
@@ -43,7 +53,13 @@ public class Tipologia {
 		}
 		return Response.status(200).build();
 	}
-
+/**
+ * Metodoo per modificare la tipologia dell'attuatore.
+ * @param ID Id tipologia attuatore
+ * @param body parametri tipologia attuatore
+ * @return
+ * @throws Exception
+ */
 	@POST
 	@Path("/attuatore/{ID}")
 	public Response modificaTipologiaAttuatore(@PathParam("ID") int ID, String body) throws Exception {
@@ -56,7 +72,13 @@ public class Tipologia {
 		updatedTipologiaAttuatore.salva();
 		return Response.status(200).build();
 	}
-
+	/**
+	 * Metodoo per modificare la tipologia del sensore
+	 * @param ID Id tipologia sensore
+	 * @param body parametri tipologia attuatore
+	 * @return
+	 * @throws Exception
+	 */
 	@POST
 	@Path("/sensore/{ID}")
 	public Response modificaTipologiaSensore(@PathParam("ID") int ID, String body) throws Exception {
@@ -68,7 +90,12 @@ public class Tipologia {
 		updatedTipologiaSensore.salva();
 		return Response.status(200).build();
 	}
-
+/**
+ * Crea tipologia attuatori
+ * @param body parametri tipologia
+ * @return
+ * @throws Exception
+ */
 	@POST
 	@Path("/attuatori")
 	public Response creaTipologiaAttuatore(String body) throws Exception {
@@ -80,7 +107,12 @@ public class Tipologia {
 		newTipologiaAttuatore.salva();
 		return Response.status(200).entity("{\"ID\":" + newTipologiaAttuatore.ID_tipologia_attuatore + "}").build();
 	}
-
+	/**
+	 * Crea tipologia sensori
+	 * @param body parametri tipologia
+	 * @return
+	 * @throws Exception
+	 */
 	@POST
 	@Path("/sensori")
 	public Response creaTipologiaSensore(String body) throws Exception {
@@ -92,7 +124,11 @@ public class Tipologia {
 		newTipologiaSensore.salva();
 		return Response.status(200).entity("{\"ID\":" + newTipologiaSensore.ID_tipologia_sensore + "}").build();
 	}
-
+/**
+ * Ritorna tipologie attuatori
+ * @return
+ * @throws Exception
+ */
 	@GET
 	@Path("/attuatori")
 	public Response elencoTipologieAttuatori() throws Exception {
@@ -103,7 +139,11 @@ public class Tipologia {
 		Locale.setDefault(Locale.US);
 		return Response.status(200).entity(new Gson().toJson(dettagliAttuatori)).build();
 	}
-
+	/**
+	 * Ritorna tipologie sensori
+	 * @return
+	 * @throws Exception
+	 */
 	@GET
 	@Path("/sensori")
 	public Response elencoTipologieSensori() throws Exception {
@@ -114,7 +154,12 @@ public class Tipologia {
 		Locale.setDefault(Locale.US);
 		return Response.status(200).entity(new Gson().toJson(dettagliSensori)).build();
 	}
-
+	/**
+	 * Ritorna dettagli del sensore indicato
+	 * @param ID id del sensore
+	 * @return
+	 * @throws Exception
+	 */
 	@GET
 	@Path("/sensore/{ID}")
 	public Response dettagliSensoreIndicato(@PathParam("ID") int ID) throws Exception {
@@ -125,7 +170,12 @@ public class Tipologia {
 		Locale.setDefault(Locale.US);
 		return Response.status(200).entity(new Gson().toJson(dettagliSensoreIndicato)).build();
 	}
-
+	/**
+	 * Ritorna dettagli dell'attuatore indicato
+	 * @param ID id del sensore
+	 * @return
+	 * @throws Exception
+	 */
 	@GET
 	@Path("/attuatore/{ID}")
 	public Response dettagliAttuatoreIndicato(@PathParam("ID") int ID) throws Exception {

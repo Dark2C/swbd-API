@@ -17,7 +17,12 @@ import com.google.gson.Gson;
 public class SensoreImpianto {
 	@Context
 	private HttpHeaders httpHeaders;
-
+/**
+ * Metodo per rimuovere un sensore.
+ * @param ID id del sensore
+ * @return
+ * @throws Exception
+ */
 	@DELETE
 	@Path("/{ID}")
 	public Response removeSensore(@PathParam("ID") int ID) throws Exception {
@@ -30,7 +35,13 @@ public class SensoreImpianto {
 		}
 		return Response.status(200).build();
 	}
-
+	/**
+	 * Metodo per modificare un sensore.
+	 * @param ID id del sensore
+	 * @param body parametri sensore
+	 * @return
+	 * @throws Exception
+	 */
 	@POST
 	@Path("/{ID_sensore}")
 	public Response modificaSensore(@PathParam("ID_sensore") int ID, String body) throws Exception {
@@ -42,10 +53,16 @@ public class SensoreImpianto {
 		updatedSensor.salva();
 		return Response.status(200).build();
 	}
-
+	/**
+	 * Metodo per salvare letture sensore
+	 * @param ID id del sensore
+	 * @param body parametri sensore
+	 * @return
+	 * @throws Exception
+	 */
 	@POST
 	@Path("/{ID_sensore}/set")
-	public Response salvaLetturaAttuatore(@PathParam("ID_sensore") int ID, String body) throws Exception {
+	public Response salvaLetturaSensore(@PathParam("ID_sensore") int ID, String body) throws Exception {
 		if (!Authorization.check(httpHeaders, "monitor"))
 			return Response.status(403).build();
 
@@ -56,7 +73,13 @@ public class SensoreImpianto {
 
 		return Response.status(200).build();
 	}
-
+	/**
+	 * Metodo per recuperate letture sensore
+	 * @param ID id del sensore
+	 * @param body intervallo di lettura
+	 * @return
+	 * @throws Exception
+	 */
 	@GET
 	@Path("/{ID_sensore}")
 	public Response recuperaLetture(@PathParam("ID_sensore") int ID, String body) throws Exception {

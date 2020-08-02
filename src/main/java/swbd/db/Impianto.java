@@ -158,7 +158,10 @@ public class Impianto {
 			ID_impianto = -1;
 		}
 	}
-
+	/**
+	 * Aggiorna le informazioni dell'impianto e distingue il caso in cui debba esser creata o solo aggiornata.
+	 * @throws Exception
+	 */
 	public void salva() throws Exception {
 		if (!(latitudine > -90 && latitudine < 90) || !(longitudine > -180 && longitudine < 180))
 			throw new WebApplicationException(400);

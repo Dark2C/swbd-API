@@ -13,7 +13,12 @@ import com.google.gson.Gson;
 public class Utenti {
 	@Context
 	private HttpHeaders httpHeaders;
-
+/**
+ * Ritorna elenco Utenti
+ * @param body filtro per la ricerca degli utenti
+ * @return
+ * @throws Exception
+ */
 	@GET
 	@Path("/")
 	public Response getUtenti(String body) throws Exception {

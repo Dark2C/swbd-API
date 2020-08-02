@@ -17,7 +17,12 @@ import com.google.gson.Gson;
 public class Utente {
 	@Context
 	private HttpHeaders httpHeaders;
-
+/**
+ * Rimuove utente con un dato ID.
+ * @param ID
+ * @return
+ * @throws Exception
+ */
 	@DELETE
 	@Path("/{ID}")
 	public Response removeUtente(@PathParam("ID") int ID) throws Exception {
@@ -30,7 +35,13 @@ public class Utente {
 		}
 		return Response.status(200).build();
 	}
-
+/**
+ * Modifica i parametri di un utente corrente o di un altro utente. Quest'ultima operazione è concessa solo all'amministratore.
+ * @param user Identificativo utente
+ * @param body
+ * @return
+ * @throws Exception
+ */
 	@POST
 	@Path("/{user}")
 	public Response modificaUtente(@PathParam("user") String user, String body) throws Exception {
@@ -54,7 +65,12 @@ public class Utente {
 
 		return Response.status(200).build();
 	}
-
+/**
+ * Ritorna i dettagli dell'utente corrente o di un altro utente. Quest'ultima operazione è concessa solo all'amministratore.
+ * @param user Utente
+ * @return
+ * @throws Exception
+ */
 	@GET
 	@Path("/{user}")
 	public Response dettagliUtente(@PathParam("user") String user) throws Exception {
@@ -69,7 +85,12 @@ public class Utente {
 		Locale.setDefault(Locale.US);
 		return Response.status(200).entity((new Gson()).toJson(new swbd.db.Utente(ID))).build();
 	}
-
+/**
+ * Ritorna impianti accessibili dall'utente.
+ * @param user Utente
+ * @return
+ * @throws Exception
+ */
 	@GET
 	@Path("/{user}/impianti")
 	public Response impiantiUtente(@PathParam("user") String user) throws Exception {
@@ -84,7 +105,13 @@ public class Utente {
 		Locale.setDefault(Locale.US);
 		return Response.status(200).entity((new Gson()).toJson(new swbd.db.Utente(ID).getImpianti())).build();
 	}
-
+/**
+ * Ritorna la lista degli accessi dell'utente corrente o di un altro utente. Quest'ultima operazione è concessa solo all'amministratore.
+ * @param user Utente
+ * @param body Filtro per la ricerca degli accessi
+ * @return
+ * @throws Exception
+ */
 	@GET
 	@Path("/{user}/accessi")
 	public Response accessiUtente(@PathParam("user") String user, String body) throws Exception {

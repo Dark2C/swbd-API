@@ -18,7 +18,13 @@ import com.google.gson.Gson;
 public class Sessione {
 	@Context
 	private HttpHeaders httpHeaders;
-
+/**
+ * Metodo per effettuare il Login. Viene creata una sessione e un token per il client. Il server crea
+ * a sua volta un token che restituisce al client. Il token viene firmato con il JWT.
+ * @param body
+ * @return
+ * @throws Exception
+ */
 	@POST
 	@Path("/login")
 	@Produces("application/json")
@@ -53,7 +59,11 @@ public class Sessione {
 		}
 		return Response.status(403).build();
 	}
-
+/**
+ * Metodo per il Logout.Prima l'utente doveva esser registrato
+ * @return
+ * @throws Exception
+ */
 	@GET
 	@Path("/logout")
 	@Produces("application/json")
@@ -67,11 +77,16 @@ public class Sessione {
 				.header("Set-Cookie", "Authorization=; Path=/API/; HttpOnly; Expires=Thu, 01 Jan 1970 00:00:00 GMT")
 				.build();
 	}
-
+/**
+	 * Metodo per ottenere il token JWT.
+	 * @return
+	 * @throws Exception
+	 */
 	@GET
 	@Path("/JWT")
 	@Produces("application/json")
 	@Consumes(MediaType.APPLICATION_JSON)
+	
 	public Response getJWT() throws Exception {
 		if (!Authorization.check(httpHeaders, "logged"))
 			return Response.status(403).build();

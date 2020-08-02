@@ -17,7 +17,12 @@ import com.google.gson.Gson;
 public class AttuatoreImpianto {
 	@Context
 	private HttpHeaders httpHeaders;
-
+/**
+ *  Metodo per rimuovere l'attuatore di un impianto.
+ * @param ID ID_attuatore
+ * @return
+ * @throws Exception
+ */
 	@DELETE
 	@Path("/{ID}")
 	public Response removeAttuatore(@PathParam("ID") int ID) throws Exception {
@@ -30,7 +35,13 @@ public class AttuatoreImpianto {
 		}
 		return Response.status(200).build();
 	}
-
+/**
+ * Metodo per modificate i parametri dell'attuatore Impianto. E' un azione concessa solo dall'amministratore.
+ * @param ID ID_attuatore
+ * @param body descrizione
+ * @return
+ * @throws Exception
+ */
 	@POST
 	@Path("/{ID_attuatore}")
 	public Response modificaAttuatoreImpianto(@PathParam("ID_attuatore") int ID, String body) throws Exception {
@@ -43,7 +54,13 @@ public class AttuatoreImpianto {
 
 		return Response.status(200).build();
 	}
-
+	/**
+	 * Metodo per salvare le letture dell'attuatore Impianto. E' un azione concessa solo dall'amministratore.
+	 * @param ID ID_attuatore
+	 * @param body
+	 * @return
+	 * @throws Exception
+	 */
 	@POST
 	@Path("/{ID_attuatore}/set")
 	public Response salvaLetturaAttuatore(@PathParam("ID_attuatore") int ID, String body) throws Exception {
@@ -63,7 +80,14 @@ public class AttuatoreImpianto {
 
 		return Response.status(200).build();
 	}
-
+/** 
+ * Metodo per recuperare le letture dell'Attuatore. Il parametro body permette di richiamare alcune 
+ * operazioni: se body vuoto, ritorna le operazioni non confermate e, se l'utente e' monitor, confermale.
+ * @param ID ID_attuatore
+ * @param body 
+ * @return
+ * @throws Exception
+ */
 	@GET
 	@Path("/{ID_attuatore}")
 	public Response recuperaLetture(@PathParam("ID_attuatore") int ID, String body) throws Exception {
@@ -99,3 +123,4 @@ public class AttuatoreImpianto {
 		return Response.status(200).entity(gson.toJson(ops)).build();
 	}
 }
+

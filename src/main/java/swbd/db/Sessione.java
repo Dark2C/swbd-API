@@ -11,6 +11,13 @@ import javax.naming.InitialContext;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class Sessione {
+	/**
+	 * Ritorna il token dell'utente. seleziona l'ID utente associato al token, se esso non e' scaduto aggiorna la data di ultima operazione del token dell'utente. In caso contrario elimina 
+	 * la sessione dal database. 
+	 * @param token
+	 * @return
+	 * @throws Exception
+	 */
 	public Utente getUserByToken(String token) throws Exception {
 		if (token == null || token.length() != 128)
 			return null;
@@ -39,7 +46,11 @@ public class Sessione {
 			return new Utente(res.getInt(1)); // ritorna l'utente corrispondete al dato ID
 		}
 	}
-
+/**
+ * Metodo per invalidare token. Se il token non è valido bisogna anche elimanare la sessione dal database.
+ * @param token
+ * @throws Exception
+ */
 	public void invalidateToken(String token) throws Exception {
 		if (token == null || token.length() != 128)
 			return;
@@ -49,7 +60,15 @@ public class Sessione {
 		ps.setString(1, token);
 		ps.execute();
 	}
-
+/**
+ * Metodo per genare token. Si elimano gli eventuali token scaduti. selezione l'eventuale utente (solo se attivo) individuato da email o username e
+ * genera una stringa (token) di 128 caratteri sia casuali che dipende dall'utente e dall'orario della richiesta. Salva il token sul database e lo restituisce al chiamante.
+ * @param email
+ * @param username
+ * @param password
+ * @return
+ * @throws Exception
+ */
 	public String generateToken(String email, String username, String password) throws Exception {
 		if (((email == null || email.equals("")) && (username == null || username.equals("")))
 				|| (password == null || password.equals("")))

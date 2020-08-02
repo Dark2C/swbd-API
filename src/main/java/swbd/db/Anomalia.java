@@ -52,7 +52,10 @@ public class Anomalia {
 			ID_anomalia = -1;
 		}
 	}
-
+/**
+ * Aggiorna le informazioni dell'anomalia e distingue il caso in cui debba esser creata o solo aggiornata.
+ * @throws Exception
+ */
 	public void salva() throws Exception {
 		Connection conn = Database.Get_Connection();
 		PreparedStatement ps;
