@@ -6,6 +6,7 @@ import javax.ws.rs.ApplicationPath;
 @ApplicationPath("/v1")
 public class JerseyConfig extends ResourceConfig {
 	public JerseyConfig() {
+		register(HttpMethodOverride.class);
 		register(CORSFilter.class);
 		register(Anomalia.class);
 		register(AttuatoreImpianto.class);
