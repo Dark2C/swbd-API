@@ -23,7 +23,7 @@ public class ImpiantoAssegnato {
 			if (utenteRichiesto.tipologia.equals("tecnico")) {
 				ps = conn.prepareStatement(
 						"SELECT DISTINCT impianto FROM sensori_impianto JOIN anomalie ON ID_sensore_impianto = sensore "
-								+ "JOIN interventi ON anomalie.intervento = ID_intervento"
+								+ "JOIN interventi ON anomalie.intervento = ID_intervento "
 								+ "JOIN tecnici_intervento ON ID_intervento = tecnici_intervento.intervento "
 								+ "WHERE interventi.stato NOT IN ('risolto', 'non risolvibile') AND utente=? AND impianto=? LIMIT 1");
 				ps.setInt(1, ID_utente);
