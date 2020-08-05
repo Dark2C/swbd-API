@@ -25,7 +25,7 @@ public class ImpiantoAssegnato {
 						"SELECT DISTINCT impianto FROM sensori_impianto JOIN anomalie ON ID_sensore_impianto = sensore "
 								+ "JOIN interventi ON anomalie.intervento = ID_intervento"
 								+ "JOIN tecnici_intervento ON ID_intervento = tecnici_intervento.intervento "
-								+ "WHERE stato NOT IN ('risolto', 'non risolvibile') AND utente=? AND impianto=? LIMIT 1");
+								+ "WHERE interventi.stato NOT IN ('risolto', 'non risolvibile') AND utente=? AND impianto=? LIMIT 1");
 				ps.setInt(1, ID_utente);
 				ps.setInt(2, ID_impianto);
 				ResultSet res = ps.executeQuery();
@@ -73,7 +73,7 @@ public class ImpiantoAssegnato {
 	}
 	/**
 	 * Aggiorna le informazioni dell'impianto e distingue il caso in cui debba esser creata o solo aggiornata.
-	 *Per è necessario che l'utente sia un dipendente con i permessi di scrittura
+	 *Per Ã¨ necessario che l'utente sia un dipendente con i permessi di scrittura
 	 * @throws Exception
 	 */
 	public void salva() throws Exception {
