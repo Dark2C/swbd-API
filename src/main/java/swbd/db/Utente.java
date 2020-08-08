@@ -158,7 +158,7 @@ public class Utente {
 		ResultSet rs = ps.executeQuery();
 		List<Impianto> result = new ArrayList<Impianto>();
 		while (rs.next()) {
-			result.add(new Impianto(rs.getInt("ID_impianto")));
+			result.add(new Impianto(rs.getInt("ID_impianto"), ID_utente));
 		}
 		return result.toArray(new Impianto[result.size()]);
 
