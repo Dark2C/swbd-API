@@ -20,6 +20,7 @@ public class Impianto {
 	public int intervallo_standard = 300;
 	public int intervallo_anomalia = 30;
 	public boolean flag_anomalia = false;
+	public boolean flag_permesso = false;
 
 	public Impianto() {
 	}
@@ -45,7 +46,12 @@ public class Impianto {
 		ps.setInt(1, ID);
 		res = ps.executeQuery();
 		flag_anomalia = res.next();
-
+	}
+	
+	public Impianto(int ID, int uID) throws Exception {
+		Impianto(ID);
+		ImpiantoAssegnato flagPermessi = new ImpiantoAssegnato(ID, uID);
+		flag_permesso = (flagPermessi.permesso_scrittura > 0);
 	}
 
 	public Comune getComune() throws Exception {
@@ -64,7 +70,7 @@ public class Impianto {
 		}
 		return result.toArray(new SensoreImpianto[result.size()]);
 	}
-
+		
 	public AttuatoreImpianto[] getAttuatori() throws Exception {
 		Connection conn = Database.Get_Connection();
 		PreparedStatement ps = conn
