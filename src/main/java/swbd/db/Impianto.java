@@ -49,7 +49,7 @@ public class Impianto {
 	}
 	
 	public Impianto(int ID, int uID) throws Exception {
-		Impianto(ID);
+		this(ID);
 		ImpiantoAssegnato flagPermessi = new ImpiantoAssegnato(uID, ID);
 		flag_permesso = (flagPermessi.permesso_scrittura > 0);
 	}
