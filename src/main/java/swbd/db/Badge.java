@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Date;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.WebApplicationException;
 
@@ -12,7 +11,7 @@ public class Badge {
 	public int ID = -1;
 	public int ID_utente;
 	public int ID_impianto;
-	public Date data_rilevazione;
+	public String data_rilevazione;
 
 	public Badge() {
 	}
@@ -27,7 +26,7 @@ public class Badge {
 		this.ID = res.getInt("ID");
 		ID_utente = res.getInt("ID_utente");
 		ID_impianto = res.getInt("ID_impianto");
-		data_rilevazione = res.getDate("data_rilevazione");
+		data_rilevazione = res.getString("data_rilevazione");
 	}
 
 	public void elimina() throws Exception {
@@ -48,7 +47,7 @@ public class Badge {
 		return new Impianto(ID_impianto);
 	}
 /**
- * Quando un tecnico accede ad un impianto può essere creato solo un nuovo passaggio ma non si possono modificare quelli precedenti.
+ * Quando un tecnico accede ad un impianto puÃ² essere creato solo un nuovo passaggio ma non si possono modificare quelli precedenti.
  * @throws Exception
  */
 	// solo new, l'update non ha senso
@@ -74,7 +73,7 @@ public class Badge {
 			ps = conn.prepareStatement("SELECT * FROM badge WHERE ID=?");
 			ps.setInt(1, ID);
 			rs = ps.executeQuery();
-			data_rilevazione = rs.getDate("data_rilevazione");
+			data_rilevazione = rs.getString("data_rilevazione");
 		}
 	}
 }
